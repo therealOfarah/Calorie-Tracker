@@ -29,7 +29,7 @@ function Entry() {
   const baseUrl = `http://localhost:8000/entry/`
   function addSingleEntry(){
     setAddNewEntry(false)
-    let url = `${baseUrl}create`
+    let url = `http://localhost:8000/entry/create`
     axios.post(url,{
       "ingredients":newEntry.ingredients,
       "dish":newEntry.dish,
@@ -44,7 +44,7 @@ function Entry() {
     })
   }
   function deleteSingleEntry(id:number){
-    let url = `${baseUrl}/delete`+id
+    let url = `http://localhost:8000/entry/delete/`+id
     axios(url,{
 
     }).then(res=>{
@@ -65,7 +65,7 @@ function Entry() {
   }
   function changeSingleEntry(){
     changeEntry.change =false
-    let url = `${baseUrl}update`+changeEntry.id
+    let url = `http://localhost:8000/entry/update/`+changeEntry.id
     axios.post(url,{
       "ingredients":newEntry.ingredients,
       "dish":newEntry.dish,
@@ -97,7 +97,7 @@ function Entry() {
       </Container>
       <Container>
         {entries != null && entries.map((entry: any,i:number)=>(
-          <SingleEntry entryData={entry} deleteSingleEntry={deleteSingleEntry} setChangeIngredient={setChangeIngredient} setChangeEntry={setChangeEntry}/>
+          <SingleEntry key={entry.id}entryData={entry} deleteSingleEntry={deleteSingleEntry} setChangeIngredient={setChangeIngredient} setChangeEntry={setChangeEntry}/>
         ))}
       </Container>
       <Modal show={addNewEntry} onHide={()=>setAddNewEntry(false)} centered>

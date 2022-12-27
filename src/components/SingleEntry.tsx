@@ -19,16 +19,17 @@ function SingleEntry({entryData, setChangeIngredient, deleteSingleEntry, setChan
       }
     )
   }
+  console.log(entryData)
   return (
     <div>
       <Card>
       <Row>
-        <Col>Dish:{entryData !== undefined && entryData.Dish}</Col>
-        <Col>Ingredinets:{entryData !== undefined && entryData.Dish}</Col>
-        <Col>Calories:{entryData !== undefined && entryData.Dish}</Col>
-        <Col>Carbs:{entryData !== undefined && entryData.Dish}</Col>
-        <Col>Protiens:{entryData !== undefined && entryData.Dish}</Col>
-        <Col>Fats:{entryData !== undefined && entryData.Dish}</Col>
+        <Col>Dish:{entryData !== undefined && entryData.dish}</Col>
+        <Col>Ingredinets:{entryData !== undefined && entryData.ingredients}</Col>
+        <Col>Calories:{entryData !== undefined && entryData.calories}</Col>
+        <Col>Carbs:{entryData !== undefined && entryData.carb}</Col>
+        <Col>Protiens:{entryData !== undefined && entryData.protein}</Col>
+        <Col>Fats:{entryData !== undefined && entryData.fat}</Col>
         <Col><Button onClick={()=>deleteSingleEntry(entryData._id)}>Delete</Button></Col>
         <Col><Button onClick={()=>changeIngredient()}>Change Ingredients</Button></Col>
         <Col><Button onClick={()=>changeEntry()}>Change Dish</Button></Col>
